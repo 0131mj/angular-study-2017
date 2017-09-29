@@ -1,6 +1,6 @@
 # CH.11 모듈과 라우터
 
-- 모듈 : 컴포턴트, 서비스, 지시자, 파이프를 하나로 묶어서 제공하는 기능
+- 모듈 : 컴포넌트, 서비스, 지시자, 파이프를 하나로 묶어서 제공하는 기능
 
   앵귤러는 BrowserModule, HttpModule, FormsModule 등으로 구성되어 있음.
 
@@ -10,7 +10,7 @@
 
   각 뷰마다 달리 사용되는 요소들을 모듈화하여 관리하면 편리함.
 
-### 11.1 모듈의 분리 - 변경내역 확인 : http://bit.ly/hb-af-final5
+### 11.1 모듈의 분리 - 변경내역 확인 : http://bit.ly/hb-af-final-4
 
 10장 예제와 같이 `AppModule`에 모든 요소를 등록하면
 
@@ -337,5 +337,37 @@ export class ScmMainModule { }
     </div>
 ```
 
+## 11.2 라우터의 기본
+사진
+- URL과 컴포넌트를 매칭
 
 
+### 11.2.1 라우터 설정
+사진
+URL경로 / URL 매칭 시 할일 /URL 매칭 방법
+
+기본방식
+```
+{path :'abc/test', component:AComponent }
+```
+
+계층 방식(위 Route와 동일하게 매칭)
+```
+{path :'abc', children:[
+    {path :'test', component:AComponent }
+]}
+```
+
+### 11.2.2 Routes 등록
+```
+export type Routes = Route[];
+```
+RouterModule에 등록하여 사용.
+
+
+### 11.2.3 RouterLink, RouterLinkActive
+
+```
+<a routerLink="/abc/test">컴포넌트로 이동</a>
+```
+Angular는 단일페이지 어플리케이션으로 href속성이 유효하지 않다. 따라서 페이지 전환이 없는 RouterLink를 사용한다.
